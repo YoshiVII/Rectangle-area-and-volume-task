@@ -17,29 +17,33 @@
             //|   3     |    5      |    10  |
             //
             // Show your test evidence in the Readme
-
             int width, length, height;
             Console.Write("Enter width: ");
-            width = Console.ReadLine();
+            width = Convert.ToInt32(Console.ReadLine()); 
+            Console.Write("Enter length: ");
+            length = Convert.ToInt32(Console.ReadLine());
             Console.Write("Enter height (enter -1 to ignore): ");
-
-            int answer = RectangleCalculator(width, length, height);
+            height = Convert.ToInt32(Console.ReadLine());
+            int result = RectangleCalculator(width, length, height);
             if (height == -1)
             {
-                Console.WriteLine($"Area = {answer}");
+                Console.WriteLine($"Area = {result}");
+            }
+            else
+            {
+                Console.WriteLine($"Volume = {result}");
             }
         }
-        static int RectangleCalculator(int width, int length,int height) { 
-             
+        static int RectangleCalculator(int width, int length, int height)
+        {
             if (height == -1) // if it is area
             {
-
-            }else // if it is volume
-            {
-
+                return width * length;
             }
-            return 0; // should never happen
-        
+            else // if it is volume
+            {
+                return length * width * height;
+            }
         }
     }
 }
